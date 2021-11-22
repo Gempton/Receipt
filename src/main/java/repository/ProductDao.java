@@ -30,12 +30,12 @@ public class ProductDao {
         return listOfProduct;
     }
 
-    public Product addProduct(Product product) {
-        listOfProduct.add(product);
-        return product;
-    }
-
-    public boolean removeProduct(Product product) {
-        return listOfProduct.remove(product);
-    }
+//    public Product addProduct(Product product) {
+//        listOfProduct.add(product);
+//        return product;
+//    }
+//
+//    public boolean removeProduct(Product product) {
+//        return listOfProduct.remove(product);
+//    }
 }
