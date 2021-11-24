@@ -1,27 +1,31 @@
 package service;
 
 import model.Product;
+import model.ReceiptProduct;
+import repository.ProductDao;
 
 import java.util.*;
 
 public class ProductService {
     private static final double DISCOUNT = 0.1;
-    private double sumOfTotalPrice;
+    private ProductDao productDao = new ProductDao();
 
-    public List<Object> calculatePrice(Product product, Integer count) {
-        double totalPrice = product.getPrice() * count;
+    public List<ReceiptProduct> calculatePrice(Map<Integer, Integer> productIdToCountMap) {
 
-        // Discount if more then 5 products
-        if (count > 5) {
-            totalPrice -= (totalPrice * DISCOUNT);
+        List<ReceiptProduct> receiptProducts = new ArrayList<>();
+
+        for (Integer key : productIdToCountMap.keySet()) {
+            Product product = productDao.findById(key);
+            Integer count = productIdToCountMap.get(key);
+            double totalPrice = product.getPrice() * count;
+
+            // Discount if more then 5 products
+            if (count > 5) {
+                totalPrice = totalPrice - (totalPrice * DISCOUNT);
+            }
+
+            receiptProducts.add(new ReceiptProduct(product, count, totalPrice));
         }
-        sumOfTotalPrice += totalPrice;
-
-        return Arrays.asList(product, count, totalPrice, sumOfTotalPrice);
+        return receiptProducts;
     }
-
-    public Double getSumOfTotalPrice() {
-        return sumOfTotalPrice;
-    }
-
 }
