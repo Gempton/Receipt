@@ -1,8 +1,7 @@
 import model.ReceiptProduct;
 
 import java.io.PrintStream;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
@@ -30,20 +29,16 @@ public class ReceiptManager {
         outputStream.printf("%34s%n", "Tel: 123-456-7890");
         outputStream.printf("%s", "CASHIER: N1520");
 
-        LocalDate localDate = LocalDate.now();
-        String localDateString = localDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        outputStream.printf("%37s%n", localDateString);
-        LocalTime localTime = LocalTime.now();
-        String localTimeString = localTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        outputStream.printf("%51s%n", localTimeString);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String localDateAndTimeString = localDateTime.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
+
+        outputStream.printf("%37s%n", localDateAndTimeString);
         outputStream.println(LINE);
     }
 
     private void printBody(List<ReceiptProduct> receiptProducts) {
         outputStream.printf("%s%14s%23s%11s%n", QUANTITY, DESCRIPTION, PRICE, TOTAL_PRICE);
-        for (int i = 0; i < receiptProducts.size(); i++) {
-            ReceiptProduct receiptProduct = receiptProducts.get(i);
-
+        for (ReceiptProduct receiptProduct : receiptProducts) {
             Integer count = receiptProduct.getCount();
             String description = receiptProduct.getProduct().getName();
             Double price = receiptProduct.getProduct().getPrice();
@@ -77,11 +72,10 @@ public class ReceiptManager {
         return map;
     }
 
-    public double calculateTotal(List<ReceiptProduct> receiptProducts, Double discount) {
-        double totalPrice = 0;
+    public Double calculateTotal(List<ReceiptProduct> receiptProducts, Double discount) {
+        Double totalPrice = 0.0;
 
-        for (int i = 0; i < receiptProducts.size(); i++) {
-            ReceiptProduct receiptProduct = receiptProducts.get(i);
+        for (ReceiptProduct receiptProduct : receiptProducts) {
             totalPrice += receiptProduct.getTotalPrice();
         }
         totalPrice = totalPrice - (totalPrice * discount);
@@ -89,7 +83,7 @@ public class ReceiptManager {
     }
 
     public Double getCardDiscount(String[] args) {
-        double discount = 0.0;
+        Double discount = 0.0;
         for (String arg : args) {
             String[] str = arg.split("-");
             if (str[0].equals("card")) {
