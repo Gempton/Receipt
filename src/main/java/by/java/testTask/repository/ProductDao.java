@@ -1,6 +1,6 @@
-package repository;
+package by.java.testTask.repository;
 
-import model.Product;
+import by.java.testTask.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

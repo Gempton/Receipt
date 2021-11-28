@@ -1,14 +1,14 @@
-package service;
+package by.java.testTask.service;
 
-import model.Product;
-import model.ReceiptProduct;
+import by.java.testTask.model.Product;
+import by.java.testTask.model.ReceiptProduct;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import repository.ProductDao;
+import by.java.testTask.repository.ProductDao;
 
 import java.util.List;
 import java.util.Map;
@@ -47,6 +47,7 @@ class ProductServiceTest {
         Assertions.assertEquals(totalPrice, receiptProducts.get(0).getTotalPrice());
     }
 
+    @Test
     void shouldCalculateTotalPriceWithDiscount() {
         Product product = new Product();
         product.setPrice(50.0);

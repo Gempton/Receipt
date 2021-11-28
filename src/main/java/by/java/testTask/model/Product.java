@@ -1,4 +1,4 @@
-package model;
+package by.java.testTask.model;
 
 public class Product {
     private Integer id;
@@ -9,6 +9,9 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public Product() {
     }
 
     public Integer getId() {

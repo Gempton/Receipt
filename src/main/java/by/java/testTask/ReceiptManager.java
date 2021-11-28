@@ -1,4 +1,6 @@
-import model.ReceiptProduct;
+package by.java.testTask;
+
+import by.java.testTask.model.ReceiptProduct;
 
 import java.io.PrintStream;
 import java.time.LocalDateTime;
@@ -20,6 +22,9 @@ public class ReceiptManager {
 
     public ReceiptManager(PrintStream outputStream) {
         this.outputStream = outputStream;
+    }
+
+    public ReceiptManager() {
     }
 
     private void printHeader() {
@@ -82,8 +87,8 @@ public class ReceiptManager {
         return totalPrice;
     }
 
-    public Double getCardDiscount(String[] args) {
-        Double discount = 0.0;
+    public double getCardDiscount(String[] args) {
+        double discount = 0.0;
         for (String arg : args) {
             String[] str = arg.split("-");
             if (str[0].equals("card")) {

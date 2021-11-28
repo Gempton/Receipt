@@ -1,4 +1,4 @@
-package model;
+package by.java.testTask.model;
 
 public class ReceiptProduct {
 
@@ -10,6 +10,9 @@ public class ReceiptProduct {
         this.product = product;
         this.count = count;
         this.totalPrice = totalPrice;
+    }
+
+    public ReceiptProduct() {
     }
 
     public Product getProduct() {

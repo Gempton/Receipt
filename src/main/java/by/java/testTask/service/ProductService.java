@@ -1,8 +1,8 @@
-package service;
+package by.java.testTask.service;
 
-import model.Product;
-import model.ReceiptProduct;
-import repository.ProductDao;
+import by.java.testTask.model.Product;
+import by.java.testTask.model.ReceiptProduct;
+import by.java.testTask.repository.ProductDao;
 
 import java.util.*;
 
@@ -27,5 +27,9 @@ public class ProductService {
             receiptProducts.add(new ReceiptProduct(product, count, totalPrice));
         }
         return receiptProducts;
+    }
+
+    public void setProductDao(ProductDao productDao) {
+        this.productDao = productDao;
     }
 }
