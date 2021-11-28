@@ -8,7 +8,7 @@
 * [Additional information](#additional-information)
 
 ## General info
-This project is console project which print check in the store.
+This project is console application which print check in the store.
 
 ## Technologies
 Project is created with:
