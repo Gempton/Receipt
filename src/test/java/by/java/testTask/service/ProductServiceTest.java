@@ -64,9 +64,7 @@ class ProductServiceTest {
 
         Double totalPrice = product.getPrice() * count;
         double discount = 0.1;
-        if (count > 5) {
-            totalPrice = totalPrice - (totalPrice * discount);
-        }
+        totalPrice = totalPrice - (totalPrice * discount);
         Assertions.assertEquals(totalPrice, receiptProducts.get(0).getTotalPrice());
     }
 }
