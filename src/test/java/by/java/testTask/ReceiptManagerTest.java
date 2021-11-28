@@ -1,3 +1,5 @@
+package by.java.testTask;
+
 import by.java.testTask.ReceiptManager;
 import by.java.testTask.model.ReceiptProduct;
 import org.junit.jupiter.api.Assertions;
