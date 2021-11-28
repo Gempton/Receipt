@@ -15,7 +15,7 @@ Project is created with:
 * Maven 3.6.3
 * JUnit 5
 
-##Setup
+## Setup
 ```
 git clone https://github.com/Gempton/Receipt.git
 cd ../receiptMachine
@@ -31,14 +31,19 @@ mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-3"
 mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-3 5-6"
 ```
 
-if you want to run with discount card
+If you want to run with discount card
 ```
 mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-10 6-7 3-3 4-1 6-8 card-1234"
 mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-3 6-5 3-7 7-8 9-10 card-1234"
 mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-3 card-1234"
 mvn exec:java -Dexec.mainClass=by.java.testTask.Demo -Dexec.args="1-3 5-6 card-1234"
 ```
-Where for example "1-10 6-7 3-3":
-1, 6, 3 - productId
+Where for example "1-10 6-7 3-3":<br />
+1, 6, 3 - productId<br />
 10, 7, 3 - count of product
+
+### If you want to run tests:
+```
+mvn test
+```
 
