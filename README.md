@@ -19,7 +19,7 @@ Project is created with:
 ## Setup
 ```
 git clone https://github.com/Gempton/Receipt.git
-cd ../receiptMachine
+cd ../Receipt
 mvn install
 mvn clean package
 ```
